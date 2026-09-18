@@ -881,13 +881,13 @@ export default function Home() {
 
         <div className="min-w-0">
           {/* AQUI ESTÁ A CORREÇÃO MOBILE */}
-          <div className="mb-3 flex items-start gap-2 sm:mb-6 sm:items-center sm:gap-3">
-            <span className="mt-[0.55rem] h-px w-5 shrink-0 bg-[#9A6B4A] sm:mt-0 sm:w-10" />
+         <div className="mb-3 flex items-center gap-2 sm:mb-6 sm:gap-3">
+  <span className="h-px w-5 shrink-0 bg-[#9A6B4A] sm:w-10" />
 
-            <p className="text-[8px] uppercase leading-4 tracking-[0.18em] text-[#B47C55] sm:text-xs sm:tracking-[0.25em] md:text-sm md:tracking-[0.32em]">
-              {t.hero.eyebrow}
-            </p>
-          </div>
+  <p className="whitespace-nowrap text-[7px] uppercase leading-4 tracking-[0.12em] text-[#B47C55] sm:text-xs sm:tracking-[0.25em] md:text-sm md:tracking-[0.32em]">
+    {t.hero.eyebrow}
+  </p>
+</div>
 
           <h1 className="text-[2.5rem] font-bold leading-[0.88] tracking-[-0.055em] sm:text-6xl md:text-8xl">
             Diogo
