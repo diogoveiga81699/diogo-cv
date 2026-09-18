@@ -79,6 +79,7 @@ export default function Home() {
 
   const copyText = async (label: string, value: string) => {
     await navigator.clipboard.writeText(value);
+
     setCopied(label);
 
     setTimeout(() => {
@@ -418,7 +419,7 @@ export default function Home() {
   const theme = darkMode
     ? {
         page: "bg-[#080808] text-[#f5f5f5]",
-        header: "bg-[#080808]/80 border-white/10",
+        header: "bg-[#080808]/85 border-white/10",
         card: "bg-[#111111] border-white/10",
         muted: "text-zinc-400",
         subtle: "text-zinc-500",
@@ -430,7 +431,7 @@ export default function Home() {
       }
     : {
         page: "bg-[#F7F5F2] text-[#171717]",
-        header: "bg-[#F7F5F2]/80 border-black/10",
+        header: "bg-[#F7F5F2]/90 border-black/10",
         card: "bg-white border-black/10",
         muted: "text-zinc-600",
         subtle: "text-zinc-500",
@@ -443,6 +444,7 @@ export default function Home() {
 
   const circleRadius = 22;
   const circleCircumference = 2 * Math.PI * circleRadius;
+
   const circleOffset =
     circleCircumference - (scrollProgress / 100) * circleCircumference;
 
@@ -450,50 +452,68 @@ export default function Home() {
     <main
       className={`relative min-h-screen transition-colors duration-500 ${theme.page}`}
     >
+      {/* BACKGROUND */}
       <div className="pointer-events-none fixed left-1/2 top-[-300px] z-0 h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-[#9A6B4A]/20 blur-[180px]" />
 
+      {/* HEADER */}
       <header
         className={`fixed inset-x-0 top-0 z-50 border-b backdrop-blur-xl ${theme.header}`}
       >
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <a href="#inicio" className="text-lg font-bold tracking-tight">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 sm:py-4">
+          <a
+            href="#inicio"
+            className="text-lg font-bold tracking-tight sm:text-xl"
+          >
             D<span className="text-[#9A6B4A]">V</span>.
           </a>
 
-          <nav className={`hidden items-center gap-7 text-sm md:flex ${theme.muted}`}>
-            <a href="#sobre" className="hover:text-[#B47C55]">
+          <nav
+            className={`hidden items-center gap-7 text-sm md:flex ${theme.muted}`}
+          >
+            <a href="#sobre" className="transition hover:text-[#B47C55]">
               {t.nav.about}
             </a>
-            <a href="#formacao" className="hover:text-[#B47C55]">
+
+            <a href="#formacao" className="transition hover:text-[#B47C55]">
               {t.nav.education}
             </a>
-            <a href="#experiencia" className="hover:text-[#B47C55]">
+
+            <a
+              href="#experiencia"
+              className="transition hover:text-[#B47C55]"
+            >
               {t.nav.experience}
             </a>
-            <a href="#projetos" className="hover:text-[#B47C55]">
+
+            <a href="#projetos" className="transition hover:text-[#B47C55]">
               {t.nav.projects}
             </a>
-            <a href="#conhecimentos" className="hover:text-[#B47C55]">
+
+            <a
+              href="#conhecimentos"
+              className="transition hover:text-[#B47C55]"
+            >
               {t.nav.knowledge}
             </a>
-            <a href="#contacto" className="hover:text-[#B47C55]">
+
+            <a href="#contacto" className="transition hover:text-[#B47C55]">
               {t.nav.contact}
             </a>
           </nav>
 
           <div className="flex items-center gap-2">
+            {/* LANGUAGE */}
             <div ref={languageMenuRef} className="relative">
               <button
                 onClick={() => setLanguageOpen(!languageOpen)}
-                className={`flex h-10 items-center gap-2 rounded-full border px-4 text-sm font-medium ${theme.secondaryButton}`}
+                className={`flex h-9 items-center gap-2 rounded-full border px-3 text-xs font-medium transition sm:h-10 sm:px-4 sm:text-sm ${theme.secondaryButton}`}
               >
                 {language.toUpperCase()}
+
                 <span
-                  className={
-                    languageOpen
-                      ? "rotate-180 text-[10px]"
-                      : "text-[10px]"
-                  }
+                  className={`text-[9px] transition-transform ${
+                    languageOpen ? "rotate-180" : ""
+                  }`}
                 >
                   ▼
                 </span>
@@ -501,7 +521,7 @@ export default function Home() {
 
               {languageOpen && (
                 <div
-                  className={`absolute right-0 top-12 min-w-[160px] overflow-hidden rounded-2xl border shadow-2xl ${theme.dropdown}`}
+                  className={`absolute right-0 top-11 min-w-[150px] overflow-hidden rounded-2xl border shadow-2xl sm:top-12 ${theme.dropdown}`}
                 >
                   <button
                     onClick={() => {
@@ -511,6 +531,7 @@ export default function Home() {
                     className={`flex w-full justify-between px-4 py-3 text-sm ${theme.dropdownHover}`}
                   >
                     Português
+
                     {language === "pt" && (
                       <span className="text-[#9A6B4A]">✓</span>
                     )}
@@ -524,6 +545,7 @@ export default function Home() {
                     className={`flex w-full justify-between px-4 py-3 text-sm ${theme.dropdownHover}`}
                   >
                     English
+
                     {language === "en" && (
                       <span className="text-[#9A6B4A]">✓</span>
                     )}
@@ -532,9 +554,10 @@ export default function Home() {
               )}
             </div>
 
+            {/* THEME */}
             <button
               onClick={() => setDarkMode(!darkMode)}
-              className={`flex h-10 w-10 items-center justify-center rounded-full border ${theme.secondaryButton}`}
+              className={`flex h-9 w-9 items-center justify-center rounded-full border text-base transition sm:h-10 sm:w-10 sm:text-lg ${theme.secondaryButton}`}
               aria-label={t.themeTitle}
               title={t.themeTitle}
             >
@@ -544,21 +567,30 @@ export default function Home() {
         </div>
       </header>
 
+      {/* HERO */}
       <section
         id="inicio"
-        className="mx-auto grid min-h-screen max-w-6xl items-center gap-14 px-6 pb-24 pt-32 md:grid-cols-[1.25fr_0.75fr]"
+        className="
+          relative z-10 mx-auto grid min-h-[100svh] max-w-6xl
+          grid-cols-[1.45fr_0.75fr] items-center gap-4
+          px-4 pb-12 pt-24
+          sm:grid-cols-[1.35fr_0.65fr] sm:gap-8 sm:px-6 sm:pb-16 sm:pt-28
+          md:grid-cols-[1.25fr_0.75fr] md:gap-14 md:pb-24 md:pt-32
+        "
       >
-        <div>
-          <div className="mb-6 flex items-center gap-3">
-            <span className="h-px w-10 bg-[#9A6B4A]" />
+        {/* TEXTO */}
+        <div className="min-w-0">
+          <div className="mb-4 flex items-center gap-2 sm:mb-6 sm:gap-3">
+            <span className="h-px w-5 shrink-0 bg-[#9A6B4A] sm:w-10" />
 
-            <p className="text-sm uppercase tracking-[0.32em] text-[#B47C55]">
+            <p className="text-[8px] uppercase leading-4 tracking-[0.18em] text-[#B47C55] sm:text-xs sm:tracking-[0.25em] md:text-sm md:tracking-[0.32em]">
               {t.hero.eyebrow}
             </p>
           </div>
 
-          <h1 className="text-6xl font-bold tracking-[-0.05em] sm:text-8xl">
+          <h1 className="text-[2.6rem] font-bold leading-[0.88] tracking-[-0.055em] sm:text-6xl md:text-8xl">
             Diogo
+
             <span
               className={`block ${
                 darkMode ? "text-zinc-500" : "text-zinc-400"
@@ -568,15 +600,23 @@ export default function Home() {
             </span>
           </h1>
 
-          <p className={`mt-7 max-w-2xl text-lg leading-8 ${theme.muted}`}>
+          <p
+            className={`mt-5 max-w-xl text-[12px] leading-5 sm:mt-7 sm:text-base sm:leading-7 md:text-lg md:leading-8 ${theme.muted}`}
+          >
             {t.hero.description}
           </p>
 
-          <div className="mt-10 flex flex-wrap gap-4">
+          <div className="mt-5 flex flex-wrap gap-2 sm:mt-8 sm:gap-3 md:mt-10 md:gap-4">
             <a
               href="/Diogo_Veiga_CV.pdf"
               download
-              className="rounded-full bg-[#9A6B4A] px-7 py-3 font-medium text-white transition hover:bg-[#B47C55]"
+              className="
+                rounded-full bg-[#9A6B4A]
+                px-3.5 py-2 text-[11px] font-medium text-white
+                transition hover:bg-[#B47C55]
+                sm:px-5 sm:py-2.5 sm:text-sm
+                md:px-7 md:py-3 md:text-base
+              "
             >
               {t.hero.download}
             </a>
@@ -585,7 +625,14 @@ export default function Home() {
               href="https://github.com/diogoveiga81699"
               target="_blank"
               rel="noreferrer"
-              className={`rounded-full border px-7 py-3 font-medium transition ${theme.secondaryButton}`}
+              className={`
+                rounded-full border
+                px-3.5 py-2 text-[11px] font-medium
+                transition
+                sm:px-5 sm:py-2.5 sm:text-sm
+                md:px-7 md:py-3 md:text-base
+                ${theme.secondaryButton}
+              `}
             >
               {t.hero.github}
             </a>
@@ -593,43 +640,52 @@ export default function Home() {
         </div>
 
         {/* FOTO */}
-        <div className="flex justify-center md:justify-end">
-          <div className="relative w-full max-w-[310px]">
-            <div className="absolute -inset-3 rounded-[2.4rem] border border-[#9A6B4A]/15" />
+        <div className="flex min-w-0 justify-end">
+          <div className="relative w-full max-w-[135px] sm:max-w-[210px] md:max-w-[310px]">
+            <div
+              className="
+                absolute -inset-1.5 rounded-[1.45rem]
+                border border-[#9A6B4A]/15
+                sm:-inset-2 sm:rounded-[1.8rem]
+                md:-inset-3 md:rounded-[2.4rem]
+              "
+            />
 
             <div
-              className={`relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-[#9A6B4A]/35 shadow-2xl ${theme.card}`}
+              className={`relative aspect-[4/5] overflow-hidden rounded-[1.25rem] border border-[#9A6B4A]/35 shadow-2xl sm:rounded-[1.6rem] md:rounded-[2rem] ${theme.card}`}
             >
               <Image
                 src="/diogo.jpg"
                 alt="Diogo Veiga"
                 fill
                 priority
+                sizes="(max-width: 639px) 135px, (max-width: 767px) 210px, 310px"
                 className="object-cover object-[center_35%] transition duration-500 hover:scale-[1.02]"
               />
 
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/15 via-transparent to-transparent" />
             </div>
-
-            <div className="absolute -bottom-4 -left-4 h-16 w-16 rounded-full bg-[#9A6B4A]/10 blur-2xl" />
           </div>
         </div>
       </section>
 
+      {/* SOBRE */}
       <section
         id="sobre"
-        className={`mx-auto max-w-6xl border-t px-6 py-24 ${theme.border}`}
+        className={`mx-auto max-w-6xl border-t px-5 py-16 sm:px-6 sm:py-24 ${theme.border}`}
       >
-        <p className="text-sm uppercase tracking-[0.3em] text-[#B47C55]">
+        <p className="text-xs uppercase tracking-[0.3em] text-[#B47C55] sm:text-sm">
           {t.about.label}
         </p>
 
-        <div className="mt-7 grid gap-12 md:grid-cols-2">
-          <h2 className="text-4xl font-semibold sm:text-5xl">
+        <div className="mt-6 grid gap-8 md:grid-cols-2 md:gap-12">
+          <h2 className="text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl">
             {t.about.title}
           </h2>
 
-          <div className={`space-y-5 leading-8 ${theme.muted}`}>
+          <div
+            className={`space-y-4 text-base leading-7 sm:leading-8 ${theme.muted}`}
+          >
             {t.about.paragraphs.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
@@ -637,78 +693,80 @@ export default function Home() {
         </div>
       </section>
 
+      {/* FORMAÇÃO */}
       <section
         id="formacao"
-        className={`mx-auto max-w-6xl border-t px-6 py-24 ${theme.border}`}
+        className={`mx-auto max-w-6xl border-t px-5 py-16 sm:px-6 sm:py-24 ${theme.border}`}
       >
-        <p className="text-sm uppercase tracking-[0.3em] text-[#B47C55]">
+        <p className="text-xs uppercase tracking-[0.3em] text-[#B47C55] sm:text-sm">
           {t.education.label}
         </p>
 
-        <h2 className="mt-4 text-4xl font-semibold">
+        <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">
           {t.education.title}
         </h2>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
-          <article className={`rounded-3xl border p-7 ${theme.card}`}>
-            <p className={theme.subtle}>
+        <div className="mt-8 grid gap-5 sm:mt-12 md:grid-cols-2">
+          <article className={`rounded-3xl border p-6 sm:p-7 ${theme.card}`}>
+            <p className={`text-sm ${theme.subtle}`}>
               {t.education.universityDate}
             </p>
 
-            <h3 className="mt-3 text-xl font-semibold">
+            <h3 className="mt-3 text-lg font-semibold sm:text-xl">
               {t.education.computerEngineering}
             </h3>
 
-            <p className={`mt-2 ${theme.muted}`}>
+            <p className={`mt-2 text-sm sm:text-base ${theme.muted}`}>
               {t.education.university}
             </p>
           </article>
 
-          <article className={`rounded-3xl border p-7 ${theme.card}`}>
-            <p className={theme.subtle}>
+          <article className={`rounded-3xl border p-6 sm:p-7 ${theme.card}`}>
+            <p className={`text-sm ${theme.subtle}`}>
               {t.education.secondaryDate}
             </p>
 
-            <h3 className="mt-3 text-xl font-semibold">
+            <h3 className="mt-3 text-lg font-semibold sm:text-xl">
               {t.education.secondaryCourse}
             </h3>
 
-            <p className={`mt-2 ${theme.muted}`}>
+            <p className={`mt-2 text-sm sm:text-base ${theme.muted}`}>
               {t.education.secondarySchool}
             </p>
           </article>
         </div>
       </section>
 
+      {/* EXPERIÊNCIA */}
       <section
         id="experiencia"
-        className={`mx-auto max-w-6xl border-t px-6 py-24 ${theme.border}`}
+        className={`mx-auto max-w-6xl border-t px-5 py-16 sm:px-6 sm:py-24 ${theme.border}`}
       >
-        <p className="text-sm uppercase tracking-[0.3em] text-[#B47C55]">
+        <p className="text-xs uppercase tracking-[0.3em] text-[#B47C55] sm:text-sm">
           {t.experience.label}
         </p>
 
-        <h2 className="mt-4 text-4xl font-semibold">
+        <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">
           {t.experience.title}
         </h2>
 
-        <div className="mt-12 space-y-5">
+        <div className="mt-8 space-y-4 sm:mt-12 sm:space-y-5">
           {t.experience.items.map((experience) => (
             <article
               key={`${experience.company}-${experience.year}`}
-              className={`flex flex-col justify-between gap-5 rounded-3xl border p-7 md:flex-row ${theme.card}`}
+              className={`flex flex-col justify-between gap-4 rounded-3xl border p-6 sm:p-7 md:flex-row ${theme.card}`}
             >
               <div>
-                <h3 className="text-xl font-semibold">
+                <h3 className="text-lg font-semibold sm:text-xl">
                   {experience.role}
                 </h3>
 
-                <p className={`mt-1 ${theme.muted}`}>
+                <p className={`mt-1 text-sm sm:text-base ${theme.muted}`}>
                   {experience.company}
                 </p>
               </div>
 
-              <p className={theme.subtle}>
+              <p className={`text-sm ${theme.subtle}`}>
                 {experience.year}
               </p>
             </article>
@@ -716,16 +774,17 @@ export default function Home() {
         </div>
       </section>
 
+      {/* PROJETOS */}
       <section
         id="projetos"
-        className={`mx-auto max-w-6xl border-t px-6 py-24 ${theme.border}`}
+        className={`mx-auto max-w-6xl border-t px-5 py-16 sm:px-6 sm:py-24 ${theme.border}`}
       >
-        <p className="text-sm uppercase tracking-[0.3em] text-[#B47C55]">
+        <p className="text-xs uppercase tracking-[0.3em] text-[#B47C55] sm:text-sm">
           {t.projects.label}
         </p>
 
         <div className="mt-4 flex flex-col justify-between gap-4 md:flex-row md:items-end">
-          <h2 className="text-4xl font-semibold">
+          <h2 className="text-3xl font-semibold sm:text-4xl">
             {t.projects.title}
           </h2>
 
@@ -733,31 +792,33 @@ export default function Home() {
             href="https://github.com/diogoveiga81699"
             target="_blank"
             rel="noreferrer"
-            className={`text-sm underline underline-offset-4 ${theme.muted}`}
+            className={`text-sm underline underline-offset-4 transition hover:text-[#B47C55] ${theme.muted}`}
           >
             {t.projects.github}
           </a>
         </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-3">
+        <div className="mt-8 grid gap-5 sm:mt-12 md:grid-cols-3">
           {t.projects.items.map((project) => (
             <article
               key={project.title}
-              className={`flex min-h-[310px] flex-col rounded-3xl border p-7 transition hover:-translate-y-1 hover:border-[#9A6B4A] ${theme.card}`}
+              className={`flex min-h-[260px] flex-col rounded-3xl border p-6 transition hover:-translate-y-1 hover:border-[#9A6B4A] sm:min-h-[310px] sm:p-7 ${theme.card}`}
             >
               <p className="text-sm text-[#B47C55]">
                 {project.number}
               </p>
 
-              <h3 className="mt-8 text-2xl font-semibold">
+              <h3 className="mt-6 text-xl font-semibold sm:mt-8 sm:text-2xl">
                 {project.title}
               </h3>
 
-              <p className={`mt-4 leading-7 ${theme.muted}`}>
+              <p
+                className={`mt-3 text-sm leading-6 sm:mt-4 sm:text-base sm:leading-7 ${theme.muted}`}
+              >
                 {project.description}
               </p>
 
-              <div className="mt-auto flex gap-4 pt-8">
+              <div className="mt-auto flex gap-4 pt-6 sm:pt-8">
                 {project.tech.map((item) => (
                   <span
                     key={item}
@@ -772,34 +833,37 @@ export default function Home() {
         </div>
       </section>
 
+      {/* CONHECIMENTOS */}
       <section
         id="conhecimentos"
-        className={`mx-auto max-w-6xl border-t px-6 py-24 ${theme.border}`}
+        className={`mx-auto max-w-6xl border-t px-5 py-16 sm:px-6 sm:py-24 ${theme.border}`}
       >
-        <p className="text-sm uppercase tracking-[0.3em] text-[#B47C55]">
+        <p className="text-xs uppercase tracking-[0.3em] text-[#B47C55] sm:text-sm">
           {t.knowledge.label}
         </p>
 
-        <h2 className="mt-4 max-w-2xl text-4xl font-semibold">
+        <h2 className="mt-4 max-w-2xl text-3xl font-semibold sm:text-4xl">
           {t.knowledge.title}
         </h2>
 
-        <div className="mt-12 grid gap-x-10 md:grid-cols-2">
+        <div className="mt-8 grid gap-x-10 sm:mt-12 md:grid-cols-2">
           {t.knowledge.items.map((item) => (
             <article
               key={item.number}
-              className={`grid grid-cols-[48px_1fr] gap-4 border-t py-7 ${theme.border}`}
+              className={`grid grid-cols-[36px_1fr] gap-3 border-t py-6 sm:grid-cols-[48px_1fr] sm:gap-4 sm:py-7 ${theme.border}`}
             >
-              <p className="text-sm text-[#B47C55]">
+              <p className="text-xs text-[#B47C55] sm:text-sm">
                 {item.number}
               </p>
 
               <div>
-                <h3 className="text-xl font-semibold">
+                <h3 className="text-lg font-semibold sm:text-xl">
                   {item.title}
                 </h3>
 
-                <p className={`mt-3 max-w-xl leading-7 ${theme.muted}`}>
+                <p
+                  className={`mt-2 text-sm leading-6 sm:mt-3 sm:text-base sm:leading-7 ${theme.muted}`}
+                >
                   {item.description}
                 </p>
               </div>
@@ -807,22 +871,25 @@ export default function Home() {
           ))}
         </div>
 
-        <div className={`mt-16 border-t pt-12 ${theme.border}`}>
-          <p className="text-sm uppercase tracking-[0.3em] text-[#B47C55]">
+        {/* IDIOMAS */}
+        <div
+          className={`mt-12 border-t pt-10 sm:mt-16 sm:pt-12 ${theme.border}`}
+        >
+          <p className="text-xs uppercase tracking-[0.3em] text-[#B47C55] sm:text-sm">
             {t.languages.label}
           </p>
 
-          <div className="mt-8 grid gap-3 sm:grid-cols-2">
+          <div className="mt-6 grid gap-2 sm:mt-8 sm:grid-cols-2">
             {t.languages.items.map((item) => (
               <div
                 key={item.language}
                 className={`flex items-center justify-between border-b py-4 ${theme.border}`}
               >
-                <p className="font-medium">
+                <p className="text-sm font-medium sm:text-base">
                   {item.language}
                 </p>
 
-                <p className={theme.muted}>
+                <p className={`text-sm sm:text-base ${theme.muted}`}>
                   {item.level}
                 </p>
               </div>
@@ -831,36 +898,42 @@ export default function Home() {
         </div>
       </section>
 
+      {/* CONTACTO */}
       <section
         id="contacto"
-        className={`mx-auto max-w-6xl border-t px-6 py-24 ${theme.border}`}
+        className={`mx-auto max-w-6xl border-t px-5 py-16 sm:px-6 sm:py-24 ${theme.border}`}
       >
-        <div className={`rounded-[2rem] border p-8 sm:p-12 ${theme.card}`}>
-          <p className="text-sm uppercase tracking-[0.3em] text-[#B47C55]">
+        <div
+          className={`rounded-[1.75rem] border p-6 sm:rounded-[2rem] sm:p-12 ${theme.card}`}
+        >
+          <p className="text-xs uppercase tracking-[0.3em] text-[#B47C55] sm:text-sm">
             {t.contact.label}
           </p>
 
-          <h2 className="mt-5 text-4xl font-semibold sm:text-5xl">
+          <h2 className="mt-4 text-3xl font-semibold sm:mt-5 sm:text-5xl">
             {t.contact.title}
           </h2>
 
-          <p className={`mt-5 max-w-2xl ${theme.muted}`}>
+          <p
+            className={`mt-4 max-w-2xl text-sm leading-6 sm:mt-5 sm:text-base ${theme.muted}`}
+          >
             {t.contact.description}
           </p>
 
-          <div className="mt-10 grid gap-5 sm:grid-cols-2">
-            <div className={`rounded-2xl border p-5 ${theme.card}`}>
-              <div className="flex items-start justify-between gap-4">
-                <div>
+          <div className="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-2 sm:gap-5">
+            {/* EMAIL */}
+            <div className={`rounded-2xl border p-4 sm:p-5 ${theme.card}`}>
+              <div className="flex items-start justify-between gap-3">
+                <div className="min-w-0">
                   <p
-                    className={`text-xs uppercase tracking-[0.2em] ${theme.subtle}`}
+                    className={`text-[10px] uppercase tracking-[0.2em] sm:text-xs ${theme.subtle}`}
                   >
                     {t.contact.email}
                   </p>
 
                   <a
                     href="mailto:diogocoto77@gmail.com"
-                    className="mt-2 block font-medium hover:text-[#B47C55]"
+                    className="mt-2 block truncate text-sm font-medium transition hover:text-[#B47C55] sm:text-base"
                   >
                     diogocoto77@gmail.com
                   </a>
@@ -870,7 +943,7 @@ export default function Home() {
                   onClick={() =>
                     copyText("email", "diogocoto77@gmail.com")
                   }
-                  className={`rounded-lg border px-3 py-2 text-xs ${theme.secondaryButton}`}
+                  className={`shrink-0 rounded-lg border px-3 py-2 text-xs transition ${theme.secondaryButton}`}
                 >
                   {copied === "email"
                     ? t.contact.copied
@@ -879,18 +952,19 @@ export default function Home() {
               </div>
             </div>
 
-            <div className={`rounded-2xl border p-5 ${theme.card}`}>
-              <div className="flex items-start justify-between gap-4">
+            {/* TELEFONE */}
+            <div className={`rounded-2xl border p-4 sm:p-5 ${theme.card}`}>
+              <div className="flex items-start justify-between gap-3">
                 <div>
                   <p
-                    className={`text-xs uppercase tracking-[0.2em] ${theme.subtle}`}
+                    className={`text-[10px] uppercase tracking-[0.2em] sm:text-xs ${theme.subtle}`}
                   >
                     {t.contact.phone}
                   </p>
 
                   <a
                     href="tel:+351969621904"
-                    className="mt-2 block font-medium hover:text-[#B47C55]"
+                    className="mt-2 block text-sm font-medium transition hover:text-[#B47C55] sm:text-base"
                   >
                     +351 969 621 904
                   </a>
@@ -900,7 +974,7 @@ export default function Home() {
                   onClick={() =>
                     copyText("telefone", "+351969621904")
                   }
-                  className={`rounded-lg border px-3 py-2 text-xs ${theme.secondaryButton}`}
+                  className={`shrink-0 rounded-lg border px-3 py-2 text-xs transition ${theme.secondaryButton}`}
                 >
                   {copied === "telefone"
                     ? t.contact.copied
@@ -909,23 +983,25 @@ export default function Home() {
               </div>
             </div>
 
-            <div className={`rounded-2xl border p-5 ${theme.card}`}>
+            {/* LOCALIZAÇÃO */}
+            <div className={`rounded-2xl border p-4 sm:p-5 ${theme.card}`}>
               <p
-                className={`text-xs uppercase tracking-[0.2em] ${theme.subtle}`}
+                className={`text-[10px] uppercase tracking-[0.2em] sm:text-xs ${theme.subtle}`}
               >
                 {t.contact.location}
               </p>
 
-              <p className="mt-2 font-medium">
+              <p className="mt-2 text-sm font-medium sm:text-base">
                 {t.contact.locationValue}
               </p>
             </div>
 
-            <div className={`rounded-2xl border p-5 ${theme.card}`}>
-              <div className="flex items-start justify-between gap-4">
-                <div>
+            {/* GITHUB */}
+            <div className={`rounded-2xl border p-4 sm:p-5 ${theme.card}`}>
+              <div className="flex items-start justify-between gap-3">
+                <div className="min-w-0">
                   <p
-                    className={`text-xs uppercase tracking-[0.2em] ${theme.subtle}`}
+                    className={`text-[10px] uppercase tracking-[0.2em] sm:text-xs ${theme.subtle}`}
                   >
                     {t.contact.github}
                   </p>
@@ -934,7 +1010,7 @@ export default function Home() {
                     href="https://github.com/diogoveiga81699"
                     target="_blank"
                     rel="noreferrer"
-                    className="mt-2 block font-medium hover:text-[#B47C55]"
+                    className="mt-2 block truncate text-sm font-medium transition hover:text-[#B47C55] sm:text-base"
                   >
                     @diogoveiga81699
                   </a>
@@ -944,10 +1020,10 @@ export default function Home() {
                   onClick={() =>
                     copyText(
                       "github",
-                      "https://github.com/diogoveiga81699",
+                      "https://github.com/diogoveiga81699"
                     )
                   }
-                  className={`rounded-lg border px-3 py-2 text-xs ${theme.secondaryButton}`}
+                  className={`shrink-0 rounded-lg border px-3 py-2 text-xs transition ${theme.secondaryButton}`}
                 >
                   {copied === "github"
                     ? t.contact.copied
@@ -959,19 +1035,27 @@ export default function Home() {
         </div>
       </section>
 
+      {/* FOOTER */}
       <footer
-        className={`mx-auto flex max-w-6xl justify-between border-t px-6 py-8 text-sm ${theme.border} ${theme.subtle}`}
+        className={`mx-auto flex max-w-6xl flex-col gap-2 border-t px-5 py-8 text-xs sm:flex-row sm:justify-between sm:px-6 sm:text-sm ${theme.border} ${theme.subtle}`}
       >
         <p>© 2026 Diogo Veiga</p>
         <p>{t.footer.built}</p>
       </footer>
 
+      {/* SCROLL PROGRESS */}
       <button
         onClick={scrollToTop}
-        className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full transition hover:scale-110"
+        className="fixed bottom-5 right-5 z-50 flex h-11 w-11 items-center justify-center rounded-full transition hover:scale-110 sm:bottom-6 sm:right-6 sm:h-14 sm:w-14"
         title={t.topTitle}
+        aria-label={t.topTitle}
       >
-        <svg width="56" height="56" className="-rotate-90">
+        <svg
+          width="100%"
+          height="100%"
+          viewBox="0 0 56 56"
+          className="-rotate-90"
+        >
           <circle
             cx="28"
             cy="28"
