@@ -58,7 +58,6 @@ export default function Home() {
     };
 
     window.addEventListener("scroll", handleScroll);
-
     handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
@@ -319,10 +318,6 @@ export default function Home() {
         locationValue: "Vila Real, Portugal",
       },
 
-      footer: {
-        built: "Desenvolvido com Next.js",
-      },
-
       themeTitle: "Alterar tema",
 
       topTitle: "Voltar ao topo",
@@ -554,10 +549,6 @@ export default function Home() {
         locationValue: "Vila Real, Portugal",
       },
 
-      footer: {
-        built: "Built with Next.js",
-      },
-
       themeTitle: "Change theme",
 
       topTitle: "Back to top",
@@ -648,8 +639,6 @@ export default function Home() {
       <header
         className={`fixed inset-x-0 top-0 z-50 border-b backdrop-blur-xl ${theme.header}`}
       >
-        {/* LINHA PRINCIPAL */}
-
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3 sm:px-6 sm:py-4">
           <a
             href="#inicio"
@@ -742,9 +731,7 @@ export default function Home() {
                     Português
 
                     {language === "pt" && (
-                      <span className="text-[#9A6B4A]">
-                        ✓
-                      </span>
+                      <span className="text-[#9A6B4A]">✓</span>
                     )}
                   </button>
 
@@ -758,9 +745,7 @@ export default function Home() {
                     English
 
                     {language === "en" && (
-                      <span className="text-[#9A6B4A]">
-                        ✓
-                      </span>
+                      <span className="text-[#9A6B4A]">✓</span>
                     )}
                   </button>
                 </div>
@@ -787,26 +772,14 @@ export default function Home() {
                   strokeLinejoin="round"
                   aria-hidden="true"
                 >
-                  <circle
-                    cx="12"
-                    cy="12"
-                    r="4"
-                  />
-
+                  <circle cx="12" cy="12" r="4" />
                   <path d="M12 2v2" />
-
                   <path d="M12 20v2" />
-
                   <path d="m4.93 4.93 1.41 1.41" />
-
                   <path d="m17.66 17.66 1.41 1.41" />
-
                   <path d="M2 12h2" />
-
                   <path d="M20 12h2" />
-
                   <path d="m6.34 17.66-1.41 1.41" />
-
                   <path d="m19.07 4.93-1.41 1.41" />
                 </svg>
               ) : (
@@ -836,7 +809,6 @@ export default function Home() {
             md:hidden
             ${theme.border}
             ${theme.muted}
-
             [scrollbar-width:none]
             [&::-webkit-scrollbar]:hidden
           `}
@@ -908,8 +880,9 @@ export default function Home() {
         {/* TEXTO */}
 
         <div className="min-w-0">
-          <div className="mb-3 flex items-center gap-2 sm:mb-6 sm:gap-3">
-            <span className="h-px w-5 shrink-0 bg-[#9A6B4A] sm:w-10" />
+          {/* AQUI ESTÁ A CORREÇÃO MOBILE */}
+          <div className="mb-3 flex items-start gap-2 sm:mb-6 sm:items-center sm:gap-3">
+            <span className="mt-[0.55rem] h-px w-5 shrink-0 bg-[#9A6B4A] sm:mt-0 sm:w-10" />
 
             <p className="text-[8px] uppercase leading-4 tracking-[0.18em] text-[#B47C55] sm:text-xs sm:tracking-[0.25em] md:text-sm md:tracking-[0.32em]">
               {t.hero.eyebrow}
@@ -1018,13 +991,9 @@ export default function Home() {
           <div
             className={`space-y-3 text-[15px] leading-7 sm:space-y-4 sm:text-base sm:leading-8 ${theme.muted}`}
           >
-            {t.about.paragraphs.map(
-              (paragraph) => (
-                <p key={paragraph}>
-                  {paragraph}
-                </p>
-              )
-            )}
+            {t.about.paragraphs.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
           </div>
         </div>
       </section>
@@ -1047,9 +1016,7 @@ export default function Home() {
           <article
             className={`rounded-3xl border p-5 sm:p-7 ${theme.card}`}
           >
-            <p
-              className={`text-xs sm:text-sm ${theme.subtle}`}
-            >
+            <p className={`text-xs sm:text-sm ${theme.subtle}`}>
               {t.education.universityDate}
             </p>
 
@@ -1067,9 +1034,7 @@ export default function Home() {
           <article
             className={`rounded-3xl border p-5 sm:p-7 ${theme.card}`}
           >
-            <p
-              className={`text-xs sm:text-sm ${theme.subtle}`}
-            >
+            <p className={`text-xs sm:text-sm ${theme.subtle}`}>
               {t.education.secondaryDate}
             </p>
 
@@ -1101,32 +1066,28 @@ export default function Home() {
         </h2>
 
         <div className="mt-6 space-y-3 sm:mt-12 sm:space-y-5">
-          {t.experience.items.map(
-            (experience) => (
-              <article
-                key={`${experience.company}-${experience.year}`}
-                className={`flex flex-col justify-between gap-3 rounded-3xl border p-5 sm:p-7 md:flex-row ${theme.card}`}
-              >
-                <div>
-                  <h3 className="text-lg font-semibold sm:text-xl">
-                    {experience.role}
-                  </h3>
-
-                  <p
-                    className={`mt-1 text-sm sm:text-base ${theme.muted}`}
-                  >
-                    {experience.company}
-                  </p>
-                </div>
+          {t.experience.items.map((experience) => (
+            <article
+              key={`${experience.company}-${experience.year}`}
+              className={`flex flex-col justify-between gap-3 rounded-3xl border p-5 sm:p-7 md:flex-row ${theme.card}`}
+            >
+              <div>
+                <h3 className="text-lg font-semibold sm:text-xl">
+                  {experience.role}
+                </h3>
 
                 <p
-                  className={`text-xs sm:text-sm ${theme.subtle}`}
+                  className={`mt-1 text-sm sm:text-base ${theme.muted}`}
                 >
-                  {experience.year}
+                  {experience.company}
                 </p>
-              </article>
-            )
-          )}
+              </div>
+
+              <p className={`text-xs sm:text-sm ${theme.subtle}`}>
+                {experience.year}
+              </p>
+            </article>
+          ))}
         </div>
       </section>
 
@@ -1156,41 +1117,37 @@ export default function Home() {
         </div>
 
         <div className="mt-6 grid gap-4 sm:mt-12 sm:gap-5 md:grid-cols-3">
-          {t.projects.items.map(
-            (project) => (
-              <article
-                key={project.title}
-                className={`flex min-h-[230px] flex-col rounded-3xl border p-5 transition hover:-translate-y-1 hover:border-[#9A6B4A] sm:min-h-[310px] sm:p-7 ${theme.card}`}
+          {t.projects.items.map((project) => (
+            <article
+              key={project.title}
+              className={`flex min-h-[230px] flex-col rounded-3xl border p-5 transition hover:-translate-y-1 hover:border-[#9A6B4A] sm:min-h-[310px] sm:p-7 ${theme.card}`}
+            >
+              <p className="text-xs text-[#B47C55] sm:text-sm">
+                {project.number}
+              </p>
+
+              <h3 className="mt-5 text-xl font-semibold sm:mt-8 sm:text-2xl">
+                {project.title}
+              </h3>
+
+              <p
+                className={`mt-3 text-sm leading-6 sm:mt-4 sm:text-base sm:leading-7 ${theme.muted}`}
               >
-                <p className="text-xs text-[#B47C55] sm:text-sm">
-                  {project.number}
-                </p>
+                {project.description}
+              </p>
 
-                <h3 className="mt-5 text-xl font-semibold sm:mt-8 sm:text-2xl">
-                  {project.title}
-                </h3>
-
-                <p
-                  className={`mt-3 text-sm leading-6 sm:mt-4 sm:text-base sm:leading-7 ${theme.muted}`}
-                >
-                  {project.description}
-                </p>
-
-                <div className="mt-auto flex gap-4 pt-5 sm:pt-8">
-                  {project.tech.map(
-                    (item) => (
-                      <span
-                        key={item}
-                        className="text-xs text-[#B47C55] sm:text-sm"
-                      >
-                        {item}
-                      </span>
-                    )
-                  )}
-                </div>
-              </article>
-            )
-          )}
+              <div className="mt-auto flex gap-4 pt-5 sm:pt-8">
+                {project.tech.map((item) => (
+                  <span
+                    key={item}
+                    className="text-xs text-[#B47C55] sm:text-sm"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </article>
+          ))}
         </div>
       </section>
 
@@ -1209,30 +1166,28 @@ export default function Home() {
         </h2>
 
         <div className="mt-6 grid gap-x-10 sm:mt-12 md:grid-cols-2">
-          {t.knowledge.items.map(
-            (item) => (
-              <article
-                key={item.number}
-                className={`grid grid-cols-[32px_1fr] gap-3 border-t py-5 sm:grid-cols-[48px_1fr] sm:gap-4 sm:py-7 ${theme.border}`}
-              >
-                <p className="text-xs text-[#B47C55] sm:text-sm">
-                  {item.number}
+          {t.knowledge.items.map((item) => (
+            <article
+              key={item.number}
+              className={`grid grid-cols-[32px_1fr] gap-3 border-t py-5 sm:grid-cols-[48px_1fr] sm:gap-4 sm:py-7 ${theme.border}`}
+            >
+              <p className="text-xs text-[#B47C55] sm:text-sm">
+                {item.number}
+              </p>
+
+              <div>
+                <h3 className="text-base font-semibold sm:text-xl">
+                  {item.title}
+                </h3>
+
+                <p
+                  className={`mt-2 text-sm leading-6 sm:mt-3 sm:text-base sm:leading-7 ${theme.muted}`}
+                >
+                  {item.description}
                 </p>
-
-                <div>
-                  <h3 className="text-base font-semibold sm:text-xl">
-                    {item.title}
-                  </h3>
-
-                  <p
-                    className={`mt-2 text-sm leading-6 sm:mt-3 sm:text-base sm:leading-7 ${theme.muted}`}
-                  >
-                    {item.description}
-                  </p>
-                </div>
-              </article>
-            )
-          )}
+              </div>
+            </article>
+          ))}
         </div>
 
         {/* IDIOMAS */}
@@ -1245,24 +1200,22 @@ export default function Home() {
           </p>
 
           <div className="mt-5 grid gap-1 sm:mt-8 sm:grid-cols-2 sm:gap-2">
-            {t.languages.items.map(
-              (item) => (
-                <div
-                  key={item.language}
-                  className={`flex items-center justify-between border-b py-3.5 sm:py-4 ${theme.border}`}
-                >
-                  <p className="text-sm font-medium sm:text-base">
-                    {item.language}
-                  </p>
+            {t.languages.items.map((item) => (
+              <div
+                key={item.language}
+                className={`flex items-center justify-between border-b py-3.5 sm:py-4 ${theme.border}`}
+              >
+                <p className="text-sm font-medium sm:text-base">
+                  {item.language}
+                </p>
 
-                  <p
-                    className={`text-sm sm:text-base ${theme.muted}`}
-                  >
-                    {item.level}
-                  </p>
-                </div>
-              )
-            )}
+                <p
+                  className={`text-sm sm:text-base ${theme.muted}`}
+                >
+                  {item.level}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -1426,27 +1379,27 @@ export default function Home() {
       {/* FOOTER */}
 
       <footer
-  className={`
-    mx-5 flex max-w-[calc(100%-2.5rem)]
-    flex-col gap-2 border-t py-7 text-xs
+        className={`
+          mx-5 flex max-w-[calc(100%-2.5rem)]
+          flex-col gap-2 border-t py-7 text-xs
 
-    sm:mx-6
-    sm:max-w-[calc(100%-3rem)]
-    sm:flex-row
-    sm:justify-between
-    sm:py-8
-    sm:text-sm
+          sm:mx-6
+          sm:max-w-[calc(100%-3rem)]
+          sm:flex-row
+          sm:justify-between
+          sm:py-8
+          sm:text-sm
 
-    md:mx-auto
-    md:max-w-6xl
-    md:px-6
+          md:mx-auto
+          md:max-w-6xl
+          md:px-6
 
-    ${theme.border}
-    ${theme.subtle}
-  `}
->
-  <p>© 2026 Diogo Veiga</p>
-</footer>
+          ${theme.border}
+          ${theme.subtle}
+        `}
+      >
+        <p>© 2026 Diogo Veiga</p>
+      </footer>
 
       {/* SCROLL PROGRESS */}
 
@@ -1466,16 +1419,8 @@ export default function Home() {
             cx="28"
             cy="28"
             r={circleRadius}
-            fill={
-              darkMode
-                ? "#111111"
-                : "#ffffff"
-            }
-            stroke={
-              darkMode
-                ? "#2a2a2a"
-                : "#dddddd"
-            }
+            fill={darkMode ? "#111111" : "#ffffff"}
+            stroke={darkMode ? "#2a2a2a" : "#dddddd"}
             strokeWidth="2"
           />
 
@@ -1487,12 +1432,8 @@ export default function Home() {
             stroke="#9A6B4A"
             strokeWidth="3"
             strokeLinecap="round"
-            strokeDasharray={
-              circleCircumference
-            }
-            strokeDashoffset={
-              circleOffset
-            }
+            strokeDasharray={circleCircumference}
+            strokeDashoffset={circleOffset}
           />
         </svg>
       </button>
