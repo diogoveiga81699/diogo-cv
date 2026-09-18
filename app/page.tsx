@@ -16,7 +16,9 @@ export default function Home() {
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
-    const savedLanguage = localStorage.getItem("language") as Language | null;
+    const savedLanguage = localStorage.getItem(
+      "language"
+    ) as Language | null;
 
     if (savedTheme === "light") {
       setDarkMode(false);
@@ -45,6 +47,7 @@ export default function Home() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
+
       const documentHeight =
         document.documentElement.scrollHeight - window.innerHeight;
 
@@ -55,6 +58,7 @@ export default function Home() {
     };
 
     window.addEventListener("scroll", handleScroll);
+
     handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
@@ -79,6 +83,7 @@ export default function Home() {
 
   const copyText = async (label: string, value: string) => {
     await navigator.clipboard.writeText(value);
+
     setCopied(label);
 
     setTimeout(() => {
@@ -106,47 +111,64 @@ export default function Home() {
 
       hero: {
         eyebrow: "Estudante de Engenharia Informática",
+
         description:
           "Estudante de Engenharia Informática na UTAD, interessado em tecnologia, desenvolvimento de software e novas oportunidades para aprender, criar e evoluir.",
+
         download: "Download CV",
         github: "GitHub",
       },
 
       about: {
         label: "Sobre mim",
+
         title: "Curioso por tecnologia e sempre disposto a aprender.",
+
         paragraphs: [
           "Sou estudante de Engenharia Informática na Universidade de Trás-os-Montes e Alto Douro.",
+
           "Considero-me uma pessoa responsável, organizada, carismática e com facilidade em trabalhar em equipa.",
+
           "Procuro oportunidades onde possa continuar a aprender, aplicar os conhecimentos adquiridos no curso e desenvolver experiência profissional.",
         ],
       },
 
       education: {
         label: "Formação",
+
         title: "Percurso académico",
+
         computerEngineering: "Licenciatura em Engenharia Informática",
+
         university: "Universidade de Trás-os-Montes e Alto Douro",
+
         universityDate: "2023 — Atual",
+
         secondaryCourse: "Curso de Ciências Socioeconómicas",
+
         secondarySchool: "Escola Secundária São Pedro",
+
         secondaryDate: "2020 — 2023",
       },
 
       experience: {
         label: "Experiência",
+
         title: "Experiência profissional",
+
         items: [
           {
             role: "Operador de Loja",
             company: "Worten — Vila Real",
             year: "2025 — Atual",
           },
+
           {
             role: "Operador de Loja",
             company: "SportZone — Vila Real",
             year: "2025",
           },
+
           {
             role: "Voluntariado Jovem para a Natureza e Florestas",
             company: "IPDJ",
@@ -157,28 +179,39 @@ export default function Home() {
 
       projects: {
         label: "Projetos",
+
         title: "Alguns projetos que desenvolvi.",
+
         github: "Ver GitHub",
+
         items: [
           {
             number: "01",
             title: "Moodle CSV Tool",
+
             description:
               "Aplicação desenvolvida para importar perguntas em CSV, converter conteúdos para Moodle XML e gerir quizzes.",
+
             tech: ["Python", "Flask"],
           },
+
           {
             number: "02",
             title: "Text Normalizer",
+
             description:
               "Ferramenta para extrair, limpar e normalizar texto de documentos, com deteção de idioma e processamento de conteúdo.",
+
             tech: ["Python", "Streamlit"],
           },
+
           {
             number: "03",
             title: "Portfolio Website",
+
             description:
               "Portfolio pessoal criado para apresentar formação, experiência e projetos através de uma experiência web moderna.",
+
             tech: ["Next.js", "TypeScript"],
           },
         ],
@@ -186,35 +219,51 @@ export default function Home() {
 
       knowledge: {
         label: "Conhecimentos",
+
         title: "Áreas abordadas ao longo da licenciatura.",
+
         items: [
           {
             number: "01",
+
             title: "Programação & Algoritmos",
+
             description:
               "Programação procedural, orientada a objetos e funcional, algoritmos e estruturas de dados.",
           },
+
           {
             number: "02",
+
             title: "Software & Desenvolvimento",
+
             description:
               "Engenharia de software, planeamento e desenvolvimento, gestão de projetos e programação multiplataforma.",
           },
+
           {
             number: "03",
+
             title: "Dados & Sistemas",
+
             description:
               "Bases de dados, introdução à ciência dos dados, sistemas operativos e redes de dados.",
           },
+
           {
             number: "04",
+
             title: "Computação & Interfaces",
+
             description:
               "Computação gráfica, interação pessoa-computador e fundamentos de compiladores.",
           },
+
           {
             number: "05",
+
             title: "Fundamentos Computacionais",
+
             description:
               "Matemática discreta, métodos computacionais, métodos estatísticos, álgebra linear e análise matemática.",
           },
@@ -223,25 +272,50 @@ export default function Home() {
 
       languages: {
         label: "Idiomas",
+
         items: [
-          { language: "Português", level: "Nativo" },
-          { language: "Inglês", level: "Intermédio" },
-          { language: "Espanhol", level: "Básico" },
-          { language: "Francês", level: "Básico" },
+          {
+            language: "Português",
+            level: "Nativo",
+          },
+
+          {
+            language: "Inglês",
+            level: "Intermédio",
+          },
+
+          {
+            language: "Espanhol",
+            level: "Básico",
+          },
+
+          {
+            language: "Francês",
+            level: "Básico",
+          },
         ],
       },
 
       contact: {
         label: "Contacto",
+
         title: "Vamos falar.",
+
         description:
           "Estou disponível para novas oportunidades, projetos e desafios na área da tecnologia.",
+
         email: "Email",
+
         phone: "Telefone",
+
         location: "Localização",
+
         github: "GitHub",
+
         copy: "Copiar",
+
         copied: "Copiado ✓",
+
         locationValue: "Vila Real, Portugal",
       },
 
@@ -250,6 +324,7 @@ export default function Home() {
       },
 
       themeTitle: "Alterar tema",
+
       topTitle: "Voltar ao topo",
     },
 
@@ -265,47 +340,67 @@ export default function Home() {
 
       hero: {
         eyebrow: "Computer Engineering Student",
+
         description:
           "Computer Engineering student at UTAD, interested in technology, software development and new opportunities to learn, build and grow.",
+
         download: "Download CV",
+
         github: "GitHub",
       },
 
       about: {
         label: "About me",
+
         title: "Curious about technology and always willing to learn.",
+
         paragraphs: [
           "I am a Computer Engineering student at the University of Trás-os-Montes and Alto Douro.",
+
           "I consider myself responsible, organized, approachable and comfortable working as part of a team.",
+
           "I am looking for opportunities where I can continue learning, apply the knowledge gained throughout my degree and build professional experience.",
         ],
       },
 
       education: {
         label: "Education",
+
         title: "Academic background",
-        computerEngineering: "Bachelor's Degree in Computer Engineering",
-        university: "University of Trás-os-Montes and Alto Douro",
+
+        computerEngineering:
+          "Bachelor's Degree in Computer Engineering",
+
+        university:
+          "University of Trás-os-Montes and Alto Douro",
+
         universityDate: "2023 — Current",
+
         secondaryCourse: "Socioeconomic Sciences",
+
         secondarySchool: "São Pedro Secondary School",
+
         secondaryDate: "2020 — 2023",
       },
 
       experience: {
         label: "Experience",
+
         title: "Professional experience",
+
         items: [
           {
             role: "Retail Assistant",
             company: "Worten — Vila Real",
             year: "2025 — Current",
           },
+
           {
             role: "Retail Assistant",
             company: "SportZone — Vila Real",
             year: "2025",
           },
+
           {
             role: "Youth Volunteer for Nature and Forests",
             company: "IPDJ",
@@ -316,28 +411,42 @@ export default function Home() {
 
       projects: {
         label: "Projects",
+
         title: "Some projects I have developed.",
+
         github: "View GitHub",
+
         items: [
           {
             number: "01",
+
             title: "Moodle CSV Tool",
+
             description:
               "Application developed to import questions from CSV files, convert content into Moodle XML and manage quizzes.",
+
             tech: ["Python", "Flask"],
           },
+
           {
             number: "02",
+
             title: "Text Normalizer",
+
             description:
               "Tool designed to extract, clean and normalize text from documents, including language detection and content processing.",
+
             tech: ["Python", "Streamlit"],
           },
+
           {
             number: "03",
+
             title: "Portfolio Website",
+
             description:
               "Personal portfolio created to present my education, experience and projects through a modern web experience.",
+
             tech: ["Next.js", "TypeScript"],
           },
         ],
@@ -345,35 +454,51 @@ export default function Home() {
 
       knowledge: {
         label: "Knowledge",
+
         title: "Areas covered throughout my degree.",
+
         items: [
           {
             number: "01",
+
             title: "Programming & Algorithms",
+
             description:
               "Procedural, object-oriented and functional programming, algorithms and data structures.",
           },
+
           {
             number: "02",
+
             title: "Software & Development",
+
             description:
               "Software engineering, planning and development, project management and cross-platform programming.",
           },
+
           {
             number: "03",
+
             title: "Data & Systems",
+
             description:
               "Databases, introduction to data science, operating systems and data networks.",
           },
+
           {
             number: "04",
+
             title: "Computing & Interfaces",
+
             description:
               "Computer graphics, human-computer interaction and compiler fundamentals.",
           },
+
           {
             number: "05",
+
             title: "Computational Foundations",
+
             description:
               "Discrete mathematics, computational methods, statistics, linear algebra and mathematical analysis.",
           },
@@ -382,25 +507,50 @@ export default function Home() {
 
       languages: {
         label: "Languages",
+
         items: [
-          { language: "Portuguese", level: "Native" },
-          { language: "English", level: "Intermediate" },
-          { language: "Spanish", level: "Basic" },
-          { language: "French", level: "Basic" },
+          {
+            language: "Portuguese",
+            level: "Native",
+          },
+
+          {
+            language: "English",
+            level: "Intermediate",
+          },
+
+          {
+            language: "Spanish",
+            level: "Basic",
+          },
+
+          {
+            language: "French",
+            level: "Basic",
+          },
         ],
       },
 
       contact: {
         label: "Contact",
+
         title: "Let's talk.",
+
         description:
           "I am open to new opportunities, projects and challenges in the technology field.",
+
         email: "Email",
+
         phone: "Phone",
+
         location: "Location",
+
         github: "GitHub",
+
         copy: "Copy",
+
         copied: "Copied ✓",
+
         locationValue: "Vila Real, Portugal",
       },
 
@@ -409,6 +559,7 @@ export default function Home() {
       },
 
       themeTitle: "Change theme",
+
       topTitle: "Back to top",
     },
   };
@@ -418,47 +569,88 @@ export default function Home() {
   const theme = darkMode
     ? {
         page: "bg-[#080808] text-[#f5f5f5]",
-        header: "bg-[#080808]/90 border-white/10",
+
+        header: "bg-[#080808]/95 border-white/10",
+
         card: "bg-[#111111] border-white/10",
+
         muted: "text-zinc-400",
+
         subtle: "text-zinc-500",
+
         border: "border-white/10",
+
         secondaryButton:
           "border-white/15 text-white hover:border-[#9A6B4A] hover:bg-[#9A6B4A]/15",
+
         dropdown: "bg-[#111111] border-white/10",
+
         dropdownHover: "hover:bg-white/5",
       }
     : {
         page: "bg-[#F7F5F2] text-[#171717]",
-        header: "bg-[#F7F5F2]/90 border-black/10",
+
+        header: "bg-[#F7F5F2]/95 border-black/10",
+
         card: "bg-white border-black/10",
+
         muted: "text-zinc-600",
+
         subtle: "text-zinc-500",
+
         border: "border-black/10",
+
         secondaryButton:
           "border-black/15 text-black hover:border-[#9A6B4A] hover:bg-[#9A6B4A]/10",
+
         dropdown: "bg-white border-black/10",
+
         dropdownHover: "hover:bg-black/5",
       };
 
   const circleRadius = 22;
+
   const circleCircumference = 2 * Math.PI * circleRadius;
 
   const circleOffset =
-    circleCircumference - (scrollProgress / 100) * circleCircumference;
+    circleCircumference -
+    (scrollProgress / 100) * circleCircumference;
+
+  const sectionClass = `
+    mx-5 max-w-[calc(100%-2.5rem)]
+    scroll-mt-28
+    border-t
+    py-12
+
+    sm:mx-6
+    sm:max-w-[calc(100%-3rem)]
+    sm:py-20
+
+    md:mx-auto
+    md:max-w-6xl
+    md:scroll-mt-20
+    md:px-6
+    md:py-24
+
+    ${theme.border}
+  `;
 
   return (
     <main
       className={`relative min-h-screen transition-colors duration-500 ${theme.page}`}
     >
       {/* BACKGROUND GLOW */}
+
       <div className="pointer-events-none fixed left-1/2 top-[-300px] z-0 h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-[#9A6B4A]/20 blur-[180px]" />
 
       {/* HEADER */}
+
       <header
         className={`fixed inset-x-0 top-0 z-50 border-b backdrop-blur-xl ${theme.header}`}
       >
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 sm:py-4">
+        {/* LINHA PRINCIPAL */}
+
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-3 sm:px-6 sm:py-4">
           <a
             href="#inicio"
             className="text-lg font-bold tracking-tight sm:text-xl"
@@ -466,14 +658,22 @@ export default function Home() {
             D<span className="text-[#9A6B4A]">V</span>.
           </a>
 
+          {/* MENU DESKTOP */}
+
           <nav
             className={`hidden items-center gap-7 text-sm md:flex ${theme.muted}`}
           >
-            <a href="#sobre" className="transition hover:text-[#B47C55]">
+            <a
+              href="#sobre"
+              className="transition hover:text-[#B47C55]"
+            >
               {t.nav.about}
             </a>
 
-            <a href="#formacao" className="transition hover:text-[#B47C55]">
+            <a
+              href="#formacao"
+              className="transition hover:text-[#B47C55]"
+            >
               {t.nav.education}
             </a>
 
@@ -484,7 +684,10 @@ export default function Home() {
               {t.nav.experience}
             </a>
 
-            <a href="#projetos" className="transition hover:text-[#B47C55]">
+            <a
+              href="#projetos"
+              className="transition hover:text-[#B47C55]"
+            >
               {t.nav.projects}
             </a>
 
@@ -495,14 +698,21 @@ export default function Home() {
               {t.nav.knowledge}
             </a>
 
-            <a href="#contacto" className="transition hover:text-[#B47C55]">
+            <a
+              href="#contacto"
+              className="transition hover:text-[#B47C55]"
+            >
               {t.nav.contact}
             </a>
           </nav>
 
           <div className="flex items-center gap-2">
             {/* LANGUAGE */}
-            <div ref={languageMenuRef} className="relative">
+
+            <div
+              ref={languageMenuRef}
+              className="relative"
+            >
               <button
                 onClick={() => setLanguageOpen(!languageOpen)}
                 className={`flex h-9 items-center gap-2 rounded-full border px-3 text-xs font-medium transition sm:h-10 sm:px-4 sm:text-sm ${theme.secondaryButton}`}
@@ -532,7 +742,9 @@ export default function Home() {
                     Português
 
                     {language === "pt" && (
-                      <span className="text-[#9A6B4A]">✓</span>
+                      <span className="text-[#9A6B4A]">
+                        ✓
+                      </span>
                     )}
                   </button>
 
@@ -546,7 +758,9 @@ export default function Home() {
                     English
 
                     {language === "en" && (
-                      <span className="text-[#9A6B4A]">✓</span>
+                      <span className="text-[#9A6B4A]">
+                        ✓
+                      </span>
                     )}
                   </button>
                 </div>
@@ -554,6 +768,7 @@ export default function Home() {
             </div>
 
             {/* THEME */}
+
             <button
               onClick={() => setDarkMode(!darkMode)}
               className={`flex h-9 w-9 items-center justify-center rounded-full border transition sm:h-10 sm:w-10 ${theme.secondaryButton}`}
@@ -572,14 +787,26 @@ export default function Home() {
                   strokeLinejoin="round"
                   aria-hidden="true"
                 >
-                  <circle cx="12" cy="12" r="4" />
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="4"
+                  />
+
                   <path d="M12 2v2" />
+
                   <path d="M12 20v2" />
+
                   <path d="m4.93 4.93 1.41 1.41" />
+
                   <path d="m17.66 17.66 1.41 1.41" />
+
                   <path d="M2 12h2" />
+
                   <path d="M20 12h2" />
+
                   <path d="m6.34 17.66-1.41 1.41" />
+
                   <path d="m19.07 4.93-1.41 1.41" />
                 </svg>
               ) : (
@@ -600,18 +827,77 @@ export default function Home() {
             </button>
           </div>
         </div>
+
+        {/* MENU MOBILE */}
+
+        <nav
+          className={`
+            flex overflow-x-auto border-t px-5
+            md:hidden
+            ${theme.border}
+            ${theme.muted}
+
+            [scrollbar-width:none]
+            [&::-webkit-scrollbar]:hidden
+          `}
+        >
+          <div className="flex min-w-max items-center gap-6 py-2.5 text-[11px] font-medium">
+            <a
+              href="#sobre"
+              className="whitespace-nowrap transition hover:text-[#B47C55]"
+            >
+              {t.nav.about}
+            </a>
+
+            <a
+              href="#formacao"
+              className="whitespace-nowrap transition hover:text-[#B47C55]"
+            >
+              {t.nav.education}
+            </a>
+
+            <a
+              href="#experiencia"
+              className="whitespace-nowrap transition hover:text-[#B47C55]"
+            >
+              {t.nav.experience}
+            </a>
+
+            <a
+              href="#projetos"
+              className="whitespace-nowrap transition hover:text-[#B47C55]"
+            >
+              {t.nav.projects}
+            </a>
+
+            <a
+              href="#conhecimentos"
+              className="whitespace-nowrap transition hover:text-[#B47C55]"
+            >
+              {t.nav.knowledge}
+            </a>
+
+            <a
+              href="#contacto"
+              className="whitespace-nowrap transition hover:text-[#B47C55]"
+            >
+              {t.nav.contact}
+            </a>
+          </div>
+        </nav>
       </header>
 
       {/* HERO */}
+
       <section
         id="inicio"
         className="
           relative z-10 mx-auto grid max-w-6xl
-          grid-cols-[1.45fr_0.75fr] items-center gap-4
-          px-4 pb-16 pt-24
+          grid-cols-[1.4fr_0.75fr] items-center gap-4
+          px-5 pb-12 pt-32
 
           sm:grid-cols-[1.35fr_0.65fr]
-          sm:gap-8 sm:px-6 sm:pb-20 sm:pt-28
+          sm:gap-8 sm:px-6 sm:pb-20 sm:pt-36
 
           md:min-h-[100svh]
           md:grid-cols-[1.25fr_0.75fr]
@@ -620,8 +906,9 @@ export default function Home() {
         "
       >
         {/* TEXTO */}
+
         <div className="min-w-0">
-          <div className="mb-4 flex items-center gap-2 sm:mb-6 sm:gap-3">
+          <div className="mb-3 flex items-center gap-2 sm:mb-6 sm:gap-3">
             <span className="h-px w-5 shrink-0 bg-[#9A6B4A] sm:w-10" />
 
             <p className="text-[8px] uppercase leading-4 tracking-[0.18em] text-[#B47C55] sm:text-xs sm:tracking-[0.25em] md:text-sm md:tracking-[0.32em]">
@@ -629,12 +916,14 @@ export default function Home() {
             </p>
           </div>
 
-          <h1 className="text-[2.6rem] font-bold leading-[0.88] tracking-[-0.055em] sm:text-6xl md:text-8xl">
+          <h1 className="text-[2.5rem] font-bold leading-[0.88] tracking-[-0.055em] sm:text-6xl md:text-8xl">
             Diogo
 
             <span
               className={`block ${
-                darkMode ? "text-zinc-500" : "text-zinc-400"
+                darkMode
+                  ? "text-zinc-500"
+                  : "text-zinc-400"
               }`}
             >
               Veiga.
@@ -681,6 +970,7 @@ export default function Home() {
         </div>
 
         {/* FOTO */}
+
         <div className="flex min-w-0 justify-end">
           <div className="relative w-full max-w-[135px] sm:max-w-[210px] md:max-w-[310px]">
             <div
@@ -711,45 +1001,55 @@ export default function Home() {
       </section>
 
       {/* SOBRE */}
+
       <section
         id="sobre"
-        className={`mx-auto max-w-6xl border-t px-5 py-16 sm:px-6 sm:py-24 ${theme.border}`}
+        className={sectionClass}
       >
-        <p className="text-xs uppercase tracking-[0.3em] text-[#B47C55] sm:text-sm">
+        <p className="text-[11px] uppercase tracking-[0.28em] text-[#B47C55] sm:text-sm">
           {t.about.label}
         </p>
 
-        <div className="mt-6 grid gap-8 md:grid-cols-2 md:gap-12">
-          <h2 className="text-3xl font-semibold leading-tight sm:text-4xl md:text-5xl">
+        <div className="mt-5 grid gap-6 md:mt-6 md:grid-cols-2 md:gap-12">
+          <h2 className="max-w-xl text-[2rem] font-semibold leading-[1.12] sm:text-4xl md:text-5xl">
             {t.about.title}
           </h2>
 
           <div
-            className={`space-y-4 text-base leading-7 sm:leading-8 ${theme.muted}`}
+            className={`space-y-3 text-[15px] leading-7 sm:space-y-4 sm:text-base sm:leading-8 ${theme.muted}`}
           >
-            {t.about.paragraphs.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
+            {t.about.paragraphs.map(
+              (paragraph) => (
+                <p key={paragraph}>
+                  {paragraph}
+                </p>
+              )
+            )}
           </div>
         </div>
       </section>
 
       {/* FORMAÇÃO */}
+
       <section
         id="formacao"
-        className={`mx-auto max-w-6xl border-t px-5 py-16 sm:px-6 sm:py-24 ${theme.border}`}
+        className={sectionClass}
       >
-        <p className="text-xs uppercase tracking-[0.3em] text-[#B47C55] sm:text-sm">
+        <p className="text-[11px] uppercase tracking-[0.28em] text-[#B47C55] sm:text-sm">
           {t.education.label}
         </p>
 
-        <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">
+        <h2 className="mt-3 text-[2rem] font-semibold sm:mt-4 sm:text-4xl">
           {t.education.title}
         </h2>
 
-        <div className="mt-8 grid gap-5 sm:mt-12 md:grid-cols-2">
-          <article className={`rounded-3xl border p-6 sm:p-7 ${theme.card}`}>
-            <p className={`text-sm ${theme.subtle}`}>
+        <div className="mt-6 grid gap-4 sm:mt-12 sm:gap-5 md:grid-cols-2">
+          <article
+            className={`rounded-3xl border p-5 sm:p-7 ${theme.card}`}
+          >
+            <p
+              className={`text-xs sm:text-sm ${theme.subtle}`}
+            >
               {t.education.universityDate}
             </p>
 
@@ -757,13 +1057,19 @@ export default function Home() {
               {t.education.computerEngineering}
             </h3>
 
-            <p className={`mt-2 text-sm sm:text-base ${theme.muted}`}>
+            <p
+              className={`mt-2 text-sm sm:text-base ${theme.muted}`}
+            >
               {t.education.university}
             </p>
           </article>
 
-          <article className={`rounded-3xl border p-6 sm:p-7 ${theme.card}`}>
-            <p className={`text-sm ${theme.subtle}`}>
+          <article
+            className={`rounded-3xl border p-5 sm:p-7 ${theme.card}`}
+          >
+            <p
+              className={`text-xs sm:text-sm ${theme.subtle}`}
+            >
               {t.education.secondaryDate}
             </p>
 
@@ -771,7 +1077,9 @@ export default function Home() {
               {t.education.secondaryCourse}
             </h3>
 
-            <p className={`mt-2 text-sm sm:text-base ${theme.muted}`}>
+            <p
+              className={`mt-2 text-sm sm:text-base ${theme.muted}`}
+            >
               {t.education.secondarySchool}
             </p>
           </article>
@@ -779,53 +1087,61 @@ export default function Home() {
       </section>
 
       {/* EXPERIÊNCIA */}
+
       <section
         id="experiencia"
-        className={`mx-auto max-w-6xl border-t px-5 py-16 sm:px-6 sm:py-24 ${theme.border}`}
+        className={sectionClass}
       >
-        <p className="text-xs uppercase tracking-[0.3em] text-[#B47C55] sm:text-sm">
+        <p className="text-[11px] uppercase tracking-[0.28em] text-[#B47C55] sm:text-sm">
           {t.experience.label}
         </p>
 
-        <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">
+        <h2 className="mt-3 text-[2rem] font-semibold sm:mt-4 sm:text-4xl">
           {t.experience.title}
         </h2>
 
-        <div className="mt-8 space-y-4 sm:mt-12 sm:space-y-5">
-          {t.experience.items.map((experience) => (
-            <article
-              key={`${experience.company}-${experience.year}`}
-              className={`flex flex-col justify-between gap-4 rounded-3xl border p-6 sm:p-7 md:flex-row ${theme.card}`}
-            >
-              <div>
-                <h3 className="text-lg font-semibold sm:text-xl">
-                  {experience.role}
-                </h3>
+        <div className="mt-6 space-y-3 sm:mt-12 sm:space-y-5">
+          {t.experience.items.map(
+            (experience) => (
+              <article
+                key={`${experience.company}-${experience.year}`}
+                className={`flex flex-col justify-between gap-3 rounded-3xl border p-5 sm:p-7 md:flex-row ${theme.card}`}
+              >
+                <div>
+                  <h3 className="text-lg font-semibold sm:text-xl">
+                    {experience.role}
+                  </h3>
 
-                <p className={`mt-1 text-sm sm:text-base ${theme.muted}`}>
-                  {experience.company}
+                  <p
+                    className={`mt-1 text-sm sm:text-base ${theme.muted}`}
+                  >
+                    {experience.company}
+                  </p>
+                </div>
+
+                <p
+                  className={`text-xs sm:text-sm ${theme.subtle}`}
+                >
+                  {experience.year}
                 </p>
-              </div>
-
-              <p className={`text-sm ${theme.subtle}`}>
-                {experience.year}
-              </p>
-            </article>
-          ))}
+              </article>
+            )
+          )}
         </div>
       </section>
 
       {/* PROJETOS */}
+
       <section
         id="projetos"
-        className={`mx-auto max-w-6xl border-t px-5 py-16 sm:px-6 sm:py-24 ${theme.border}`}
+        className={sectionClass}
       >
-        <p className="text-xs uppercase tracking-[0.3em] text-[#B47C55] sm:text-sm">
+        <p className="text-[11px] uppercase tracking-[0.28em] text-[#B47C55] sm:text-sm">
           {t.projects.label}
         </p>
 
-        <div className="mt-4 flex flex-col justify-between gap-4 md:flex-row md:items-end">
-          <h2 className="text-3xl font-semibold sm:text-4xl">
+        <div className="mt-3 flex flex-col justify-between gap-3 sm:mt-4 md:flex-row md:items-end">
+          <h2 className="text-[2rem] font-semibold leading-tight sm:text-4xl">
             {t.projects.title}
           </h2>
 
@@ -839,131 +1155,147 @@ export default function Home() {
           </a>
         </div>
 
-        <div className="mt-8 grid gap-5 sm:mt-12 md:grid-cols-3">
-          {t.projects.items.map((project) => (
-            <article
-              key={project.title}
-              className={`flex min-h-[260px] flex-col rounded-3xl border p-6 transition hover:-translate-y-1 hover:border-[#9A6B4A] sm:min-h-[310px] sm:p-7 ${theme.card}`}
-            >
-              <p className="text-sm text-[#B47C55]">
-                {project.number}
-              </p>
-
-              <h3 className="mt-6 text-xl font-semibold sm:mt-8 sm:text-2xl">
-                {project.title}
-              </h3>
-
-              <p
-                className={`mt-3 text-sm leading-6 sm:mt-4 sm:text-base sm:leading-7 ${theme.muted}`}
+        <div className="mt-6 grid gap-4 sm:mt-12 sm:gap-5 md:grid-cols-3">
+          {t.projects.items.map(
+            (project) => (
+              <article
+                key={project.title}
+                className={`flex min-h-[230px] flex-col rounded-3xl border p-5 transition hover:-translate-y-1 hover:border-[#9A6B4A] sm:min-h-[310px] sm:p-7 ${theme.card}`}
               >
-                {project.description}
-              </p>
+                <p className="text-xs text-[#B47C55] sm:text-sm">
+                  {project.number}
+                </p>
 
-              <div className="mt-auto flex gap-4 pt-6 sm:pt-8">
-                {project.tech.map((item) => (
-                  <span
-                    key={item}
-                    className="text-sm text-[#B47C55]"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </article>
-          ))}
+                <h3 className="mt-5 text-xl font-semibold sm:mt-8 sm:text-2xl">
+                  {project.title}
+                </h3>
+
+                <p
+                  className={`mt-3 text-sm leading-6 sm:mt-4 sm:text-base sm:leading-7 ${theme.muted}`}
+                >
+                  {project.description}
+                </p>
+
+                <div className="mt-auto flex gap-4 pt-5 sm:pt-8">
+                  {project.tech.map(
+                    (item) => (
+                      <span
+                        key={item}
+                        className="text-xs text-[#B47C55] sm:text-sm"
+                      >
+                        {item}
+                      </span>
+                    )
+                  )}
+                </div>
+              </article>
+            )
+          )}
         </div>
       </section>
 
       {/* CONHECIMENTOS */}
+
       <section
         id="conhecimentos"
-        className={`mx-auto max-w-6xl border-t px-5 py-16 sm:px-6 sm:py-24 ${theme.border}`}
+        className={sectionClass}
       >
-        <p className="text-xs uppercase tracking-[0.3em] text-[#B47C55] sm:text-sm">
+        <p className="text-[11px] uppercase tracking-[0.28em] text-[#B47C55] sm:text-sm">
           {t.knowledge.label}
         </p>
 
-        <h2 className="mt-4 max-w-2xl text-3xl font-semibold sm:text-4xl">
+        <h2 className="mt-3 max-w-2xl text-[2rem] font-semibold leading-tight sm:mt-4 sm:text-4xl">
           {t.knowledge.title}
         </h2>
 
-        <div className="mt-8 grid gap-x-10 sm:mt-12 md:grid-cols-2">
-          {t.knowledge.items.map((item) => (
-            <article
-              key={item.number}
-              className={`grid grid-cols-[36px_1fr] gap-3 border-t py-6 sm:grid-cols-[48px_1fr] sm:gap-4 sm:py-7 ${theme.border}`}
-            >
-              <p className="text-xs text-[#B47C55] sm:text-sm">
-                {item.number}
-              </p>
-
-              <div>
-                <h3 className="text-lg font-semibold sm:text-xl">
-                  {item.title}
-                </h3>
-
-                <p
-                  className={`mt-2 text-sm leading-6 sm:mt-3 sm:text-base sm:leading-7 ${theme.muted}`}
-                >
-                  {item.description}
+        <div className="mt-6 grid gap-x-10 sm:mt-12 md:grid-cols-2">
+          {t.knowledge.items.map(
+            (item) => (
+              <article
+                key={item.number}
+                className={`grid grid-cols-[32px_1fr] gap-3 border-t py-5 sm:grid-cols-[48px_1fr] sm:gap-4 sm:py-7 ${theme.border}`}
+              >
+                <p className="text-xs text-[#B47C55] sm:text-sm">
+                  {item.number}
                 </p>
-              </div>
-            </article>
-          ))}
+
+                <div>
+                  <h3 className="text-base font-semibold sm:text-xl">
+                    {item.title}
+                  </h3>
+
+                  <p
+                    className={`mt-2 text-sm leading-6 sm:mt-3 sm:text-base sm:leading-7 ${theme.muted}`}
+                  >
+                    {item.description}
+                  </p>
+                </div>
+              </article>
+            )
+          )}
         </div>
 
         {/* IDIOMAS */}
+
         <div
-          className={`mt-12 border-t pt-10 sm:mt-16 sm:pt-12 ${theme.border}`}
+          className={`mt-9 border-t pt-8 sm:mt-16 sm:pt-12 ${theme.border}`}
         >
-          <p className="text-xs uppercase tracking-[0.3em] text-[#B47C55] sm:text-sm">
+          <p className="text-[11px] uppercase tracking-[0.28em] text-[#B47C55] sm:text-sm">
             {t.languages.label}
           </p>
 
-          <div className="mt-6 grid gap-2 sm:mt-8 sm:grid-cols-2">
-            {t.languages.items.map((item) => (
-              <div
-                key={item.language}
-                className={`flex items-center justify-between border-b py-4 ${theme.border}`}
-              >
-                <p className="text-sm font-medium sm:text-base">
-                  {item.language}
-                </p>
+          <div className="mt-5 grid gap-1 sm:mt-8 sm:grid-cols-2 sm:gap-2">
+            {t.languages.items.map(
+              (item) => (
+                <div
+                  key={item.language}
+                  className={`flex items-center justify-between border-b py-3.5 sm:py-4 ${theme.border}`}
+                >
+                  <p className="text-sm font-medium sm:text-base">
+                    {item.language}
+                  </p>
 
-                <p className={`text-sm sm:text-base ${theme.muted}`}>
-                  {item.level}
-                </p>
-              </div>
-            ))}
+                  <p
+                    className={`text-sm sm:text-base ${theme.muted}`}
+                  >
+                    {item.level}
+                  </p>
+                </div>
+              )
+            )}
           </div>
         </div>
       </section>
 
       {/* CONTACTO */}
+
       <section
         id="contacto"
-        className={`mx-auto max-w-6xl border-t px-5 py-16 sm:px-6 sm:py-24 ${theme.border}`}
+        className={sectionClass}
       >
         <div
-          className={`rounded-[1.75rem] border p-6 sm:rounded-[2rem] sm:p-12 ${theme.card}`}
+          className={`rounded-[1.5rem] border p-5 sm:rounded-[2rem] sm:p-12 ${theme.card}`}
         >
-          <p className="text-xs uppercase tracking-[0.3em] text-[#B47C55] sm:text-sm">
+          <p className="text-[11px] uppercase tracking-[0.28em] text-[#B47C55] sm:text-sm">
             {t.contact.label}
           </p>
 
-          <h2 className="mt-4 text-3xl font-semibold sm:mt-5 sm:text-5xl">
+          <h2 className="mt-3 text-[2rem] font-semibold sm:mt-5 sm:text-5xl">
             {t.contact.title}
           </h2>
 
           <p
-            className={`mt-4 max-w-2xl text-sm leading-6 sm:mt-5 sm:text-base ${theme.muted}`}
+            className={`mt-3 max-w-2xl text-sm leading-6 sm:mt-5 sm:text-base ${theme.muted}`}
           >
             {t.contact.description}
           </p>
 
-          <div className="mt-8 grid gap-4 sm:mt-10 sm:grid-cols-2 sm:gap-5">
+          <div className="mt-6 grid gap-3 sm:mt-10 sm:grid-cols-2 sm:gap-5">
             {/* EMAIL */}
-            <div className={`rounded-2xl border p-4 sm:p-5 ${theme.card}`}>
+
+            <div
+              className={`rounded-2xl border p-4 sm:p-5 ${theme.card}`}
+            >
               <div className="flex items-start justify-between gap-3">
                 <div className="min-w-0">
                   <p
@@ -982,7 +1314,10 @@ export default function Home() {
 
                 <button
                   onClick={() =>
-                    copyText("email", "diogocoto77@gmail.com")
+                    copyText(
+                      "email",
+                      "diogocoto77@gmail.com"
+                    )
                   }
                   className={`shrink-0 rounded-lg border px-3 py-2 text-xs transition ${theme.secondaryButton}`}
                 >
@@ -994,7 +1329,10 @@ export default function Home() {
             </div>
 
             {/* TELEFONE */}
-            <div className={`rounded-2xl border p-4 sm:p-5 ${theme.card}`}>
+
+            <div
+              className={`rounded-2xl border p-4 sm:p-5 ${theme.card}`}
+            >
               <div className="flex items-start justify-between gap-3">
                 <div>
                   <p
@@ -1013,7 +1351,10 @@ export default function Home() {
 
                 <button
                   onClick={() =>
-                    copyText("telefone", "+351969621904")
+                    copyText(
+                      "telefone",
+                      "+351969621904"
+                    )
                   }
                   className={`shrink-0 rounded-lg border px-3 py-2 text-xs transition ${theme.secondaryButton}`}
                 >
@@ -1025,7 +1366,10 @@ export default function Home() {
             </div>
 
             {/* LOCALIZAÇÃO */}
-            <div className={`rounded-2xl border p-4 sm:p-5 ${theme.card}`}>
+
+            <div
+              className={`rounded-2xl border p-4 sm:p-5 ${theme.card}`}
+            >
               <p
                 className={`text-[10px] uppercase tracking-[0.2em] sm:text-xs ${theme.subtle}`}
               >
@@ -1038,7 +1382,10 @@ export default function Home() {
             </div>
 
             {/* GITHUB */}
-            <div className={`rounded-2xl border p-4 sm:p-5 ${theme.card}`}>
+
+            <div
+              className={`rounded-2xl border p-4 sm:p-5 ${theme.card}`}
+            >
               <div className="flex items-start justify-between gap-3">
                 <div className="min-w-0">
                   <p
@@ -1077,14 +1424,34 @@ export default function Home() {
       </section>
 
       {/* FOOTER */}
+
       <footer
-        className={`mx-auto flex max-w-6xl flex-col gap-2 border-t px-5 py-8 text-xs sm:flex-row sm:justify-between sm:px-6 sm:text-sm ${theme.border} ${theme.subtle}`}
+        className={`
+          mx-5 flex max-w-[calc(100%-2.5rem)]
+          flex-col gap-2 border-t py-7 text-xs
+
+          sm:mx-6
+          sm:max-w-[calc(100%-3rem)]
+          sm:flex-row
+          sm:justify-between
+          sm:py-8
+          sm:text-sm
+
+          md:mx-auto
+          md:max-w-6xl
+          md:px-6
+
+          ${theme.border}
+          ${theme.subtle}
+        `}
       >
         <p>© 2026 Diogo Veiga</p>
+
         <p>{t.footer.built}</p>
       </footer>
 
       {/* SCROLL PROGRESS */}
+
       <button
         onClick={scrollToTop}
         className="fixed bottom-5 right-5 z-50 flex h-11 w-11 items-center justify-center rounded-full transition hover:scale-110 sm:bottom-6 sm:right-6 sm:h-14 sm:w-14"
@@ -1101,8 +1468,16 @@ export default function Home() {
             cx="28"
             cy="28"
             r={circleRadius}
-            fill={darkMode ? "#111111" : "#ffffff"}
-            stroke={darkMode ? "#2a2a2a" : "#dddddd"}
+            fill={
+              darkMode
+                ? "#111111"
+                : "#ffffff"
+            }
+            stroke={
+              darkMode
+                ? "#2a2a2a"
+                : "#dddddd"
+            }
             strokeWidth="2"
           />
 
@@ -1114,8 +1489,12 @@ export default function Home() {
             stroke="#9A6B4A"
             strokeWidth="3"
             strokeLinecap="round"
-            strokeDasharray={circleCircumference}
-            strokeDashoffset={circleOffset}
+            strokeDasharray={
+              circleCircumference
+            }
+            strokeDashoffset={
+              circleOffset
+            }
           />
         </svg>
       </button>
