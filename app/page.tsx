@@ -1426,29 +1426,27 @@ export default function Home() {
       {/* FOOTER */}
 
       <footer
-        className={`
-          mx-5 flex max-w-[calc(100%-2.5rem)]
-          flex-col gap-2 border-t py-7 text-xs
+  className={`
+    mx-5 flex max-w-[calc(100%-2.5rem)]
+    flex-col gap-2 border-t py-7 text-xs
 
-          sm:mx-6
-          sm:max-w-[calc(100%-3rem)]
-          sm:flex-row
-          sm:justify-between
-          sm:py-8
-          sm:text-sm
+    sm:mx-6
+    sm:max-w-[calc(100%-3rem)]
+    sm:flex-row
+    sm:justify-between
+    sm:py-8
+    sm:text-sm
 
-          md:mx-auto
-          md:max-w-6xl
-          md:px-6
+    md:mx-auto
+    md:max-w-6xl
+    md:px-6
 
-          ${theme.border}
-          ${theme.subtle}
-        `}
-      >
-        <p>© 2026 Diogo Veiga</p>
-
-        <p>{t.footer.built}</p>
-      </footer>
+    ${theme.border}
+    ${theme.subtle}
+  `}
+>
+  <p>© 2026 Diogo Veiga</p>
+</footer>
 
       {/* SCROLL PROGRESS */}
 
