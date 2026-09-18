@@ -1,5 +1,9 @@
 import { ImageResponse } from "next/og";
 
+export const runtime = "edge";
+
+export const alt = "Diogo Veiga | Portfolio";
+
 export const size = {
   width: 1200,
   height: 630,
@@ -12,152 +16,206 @@ export default function OpenGraphImage() {
     (
       <div
         style={{
-          width: "100%",
           height: "100%",
+          width: "100%",
           display: "flex",
-          background: "#080808",
-          color: "#f5f5f5",
-          fontFamily: "Arial, sans-serif",
           position: "relative",
           overflow: "hidden",
+          background: "#080808",
+          color: "#f5f5f5",
+          fontFamily:
+            'Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
         }}
       >
+        {/* glow */}
         <div
           style={{
             position: "absolute",
-            top: -120,
-            left: 220,
-            width: 700,
-            height: 700,
+            top: -180,
+            left: "50%",
+            transform: "translateX(-50%)",
+            width: 900,
+            height: 900,
             borderRadius: "9999px",
-            background: "rgba(193, 138, 97, 0.18)",
-            filter: "blur(90px)",
+            background: "rgba(154,107,74,0.22)",
+            filter: "blur(140px)",
+          }}
+        />
+
+        {/* border */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 32,
+            borderRadius: 28,
+            border: "1px solid rgba(255,255,255,0.10)",
           }}
         />
 
         <div
           style={{
-            width: "100%",
+            position: "relative",
+            zIndex: 2,
             display: "flex",
+            flexDirection: "column",
             justifyContent: "space-between",
-            padding: "70px 80px",
+            width: "100%",
+            padding: "72px 78px",
           }}
         >
+          {/* top */}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "flex-start",
+              width: "100%",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                fontSize: 44,
+                fontWeight: 800,
+                letterSpacing: "-0.04em",
+                lineHeight: 1,
+              }}
+            >
+              D<span style={{ color: "#9A6B4A" }}>V</span>.
+            </div>
+
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 12,
+                fontSize: 20,
+                color: "#a1a1aa",
+              }}
+            >
+              <div
+                style={{
+                  width: 10,
+                  height: 10,
+                  borderRadius: "9999px",
+                  background: "#9A6B4A",
+                }}
+              />
+              diogo-cv.vercel.app
+            </div>
+          </div>
+
+          {/* center */}
           <div
             style={{
               display: "flex",
               flexDirection: "column",
-              justifyContent: "center",
-              maxWidth: 650,
-              zIndex: 2,
+              gap: 22,
+              maxWidth: 760,
             }}
           >
             <div
               style={{
                 display: "flex",
                 alignItems: "center",
-                marginBottom: 28,
-                color: "#C18A61",
-                fontSize: 26,
-                letterSpacing: 6,
-                textTransform: "uppercase",
+                gap: 18,
               }}
             >
               <div
                 style={{
-                  width: 56,
-                  height: 2,
-                  background: "#C18A61",
-                  marginRight: 18,
+                  width: 64,
+                  height: 1,
+                  background: "#9A6B4A",
                 }}
               />
-              Estudante de Engenharia Informática
+
+              <div
+                style={{
+                  fontSize: 18,
+                  textTransform: "uppercase",
+                  letterSpacing: "0.35em",
+                  color: "#B47C55",
+                }}
+              >
+                Computer Engineering Student
+              </div>
             </div>
 
             <div
               style={{
                 display: "flex",
                 flexDirection: "column",
-                lineHeight: 0.92,
-                marginBottom: 28,
+                fontSize: 88,
+                fontWeight: 800,
+                lineHeight: 0.9,
+                letterSpacing: "-0.06em",
               }}
             >
-              <span
-                style={{
-                  fontSize: 108,
-                  fontWeight: 800,
-                }}
-              >
-                Diogo
-              </span>
-
-              <span
-                style={{
-                  fontSize: 108,
-                  fontWeight: 800,
-                  color: "#8E8B98",
-                }}
-              >
-                Veiga.
-              </span>
+              <span>Diogo</span>
+              <span style={{ color: "#71717a" }}>Veiga.</span>
             </div>
 
             <div
               style={{
-                fontSize: 30,
-                lineHeight: 1.4,
-                color: "#c9c9cf",
-                maxWidth: 620,
+                fontSize: 28,
+                lineHeight: 1.5,
+                color: "#a1a1aa",
+                maxWidth: 700,
               }}
             >
-              Portfolio com projetos, formação, experiência e contactos.
+              Portfolio pessoal com formação, experiência, projetos e
+              conhecimentos na área da tecnologia.
             </div>
+          </div>
 
+          {/* bottom */}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "flex-end",
+              width: "100%",
+            }}
+          >
             <div
               style={{
                 display: "flex",
-                marginTop: 40,
-                gap: 18,
+                gap: 14,
               }}
             >
               <div
                 style={{
                   padding: "14px 24px",
-                  borderRadius: 999,
-                  background: "#C18A61",
-                  color: "#ffffff",
-                  fontSize: 24,
+                  borderRadius: 9999,
+                  background: "#9A6B4A",
+                  color: "white",
+                  fontSize: 22,
                   fontWeight: 600,
                 }}
               >
-                diogo-cv.vercel.app
+                Portfolio
+              </div>
+
+              <div
+                style={{
+                  padding: "14px 24px",
+                  borderRadius: 9999,
+                  border: "1px solid rgba(255,255,255,0.14)",
+                  color: "#f5f5f5",
+                  fontSize: 22,
+                }}
+              >
+                PT / EN
               </div>
             </div>
-          </div>
 
-          <div
-            style={{
-              width: 260,
-              height: 260,
-              borderRadius: 36,
-              border: "2px solid rgba(193,138,97,0.35)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              background: "#111111",
-              zIndex: 2,
-              boxShadow: "0 20px 50px rgba(0,0,0,0.35)",
-              alignSelf: "center",
-            }}
-          >
             <div
               style={{
-                fontSize: 72,
-                fontWeight: 800,
-                color: "#C18A61",
+                fontSize: 22,
+                color: "#71717a",
               }}
             >
-              DV.
+              Diogo Veiga | Portfolio
             </div>
           </div>
         </div>
