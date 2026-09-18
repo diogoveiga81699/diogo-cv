@@ -27,7 +27,6 @@ export default function OpenGraphImage() {
             'Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
         }}
       >
-        {/* glow */}
         <div
           style={{
             position: "absolute",
@@ -36,13 +35,12 @@ export default function OpenGraphImage() {
             transform: "translateX(-50%)",
             width: 900,
             height: 900,
-            borderRadius: "9999px",
+            borderRadius: 9999,
             background: "rgba(154,107,74,0.22)",
             filter: "blur(140px)",
           }}
         />
 
-        {/* border */}
         <div
           style={{
             position: "absolute",
@@ -63,7 +61,7 @@ export default function OpenGraphImage() {
             padding: "72px 78px",
           }}
         >
-          {/* top */}
+          {/* TOPO */}
           <div
             style={{
               display: "flex",
@@ -97,15 +95,16 @@ export default function OpenGraphImage() {
                 style={{
                   width: 10,
                   height: 10,
-                  borderRadius: "9999px",
+                  borderRadius: 9999,
                   background: "#9A6B4A",
                 }}
               />
+
               diogo-cv.vercel.app
             </div>
           </div>
 
-          {/* center */}
+          {/* CENTRO */}
           <div
             style={{
               display: "flex",
@@ -152,7 +151,14 @@ export default function OpenGraphImage() {
               }}
             >
               <span>Diogo</span>
-              <span style={{ color: "#71717a" }}>Veiga.</span>
+
+              <span
+                style={{
+                  color: "#71717a",
+                }}
+              >
+                Veiga.
+              </span>
             </div>
 
             <div
@@ -168,7 +174,7 @@ export default function OpenGraphImage() {
             </div>
           </div>
 
-          {/* bottom */}
+          {/* FUNDO */}
           <div
             style={{
               display: "flex",
@@ -188,7 +194,7 @@ export default function OpenGraphImage() {
                   padding: "14px 24px",
                   borderRadius: 9999,
                   background: "#9A6B4A",
-                  color: "white",
+                  color: "#ffffff",
                   fontSize: 22,
                   fontWeight: 600,
                 }}
