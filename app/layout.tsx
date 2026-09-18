@@ -15,12 +15,21 @@ export const metadata: Metadata = {
     siteName: "Diogo Veiga | Portfolio",
     locale: "pt_PT",
     type: "website",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Diogo Veiga | Portfolio",
+      },
+    ],
   },
 
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Diogo Veiga | Portfolio",
     description: "",
+    images: ["/opengraph-image"],
   },
 
   icons: {
