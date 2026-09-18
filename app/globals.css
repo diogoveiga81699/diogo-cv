@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: Arial, Helvetica, sans-serif;
+  --font-mono: monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+  cursor:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Ccircle cx='14' cy='14' r='10' fill='none' stroke='%239A6B4A' stroke-width='2'/%3E%3C/svg%3E")
+      14 14,
+    auto;
+}
+
+a,
+button,
+[role="button"] {
+  cursor:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34' viewBox='0 0 34 34'%3E%3Ccircle cx='17' cy='17' r='13' fill='none' stroke='%23B47C55' stroke-width='2'/%3E%3C/svg%3E")
+      17 17,
+    pointer;
+}
+
+::selection {
+  background: #9a6b4a;
+  color: white;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #9a6b4a #080808;
+}
+
+/* Chrome / Edge / Safari */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080808;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #9a6b4a;
+  border-radius: 999px;
+  border: 2px solid #080808;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b47c55;
+}
