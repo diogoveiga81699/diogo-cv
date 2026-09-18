@@ -79,7 +79,6 @@ export default function Home() {
 
   const copyText = async (label: string, value: string) => {
     await navigator.clipboard.writeText(value);
-
     setCopied(label);
 
     setTimeout(() => {
@@ -419,7 +418,7 @@ export default function Home() {
   const theme = darkMode
     ? {
         page: "bg-[#080808] text-[#f5f5f5]",
-        header: "bg-[#080808]/85 border-white/10",
+        header: "bg-[#080808]/90 border-white/10",
         card: "bg-[#111111] border-white/10",
         muted: "text-zinc-400",
         subtle: "text-zinc-500",
@@ -452,7 +451,7 @@ export default function Home() {
     <main
       className={`relative min-h-screen transition-colors duration-500 ${theme.page}`}
     >
-      {/* BACKGROUND */}
+      {/* BACKGROUND GLOW */}
       <div className="pointer-events-none fixed left-1/2 top-[-300px] z-0 h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-[#9A6B4A]/20 blur-[180px]" />
 
       {/* HEADER */}
@@ -557,11 +556,47 @@ export default function Home() {
             {/* THEME */}
             <button
               onClick={() => setDarkMode(!darkMode)}
-              className={`flex h-9 w-9 items-center justify-center rounded-full border text-base transition sm:h-10 sm:w-10 sm:text-lg ${theme.secondaryButton}`}
+              className={`flex h-9 w-9 items-center justify-center rounded-full border transition sm:h-10 sm:w-10 ${theme.secondaryButton}`}
               aria-label={t.themeTitle}
               title={t.themeTitle}
             >
-              {darkMode ? "☀" : "☾"}
+              {darkMode ? (
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="12" r="4" />
+                  <path d="M12 2v2" />
+                  <path d="M12 20v2" />
+                  <path d="m4.93 4.93 1.41 1.41" />
+                  <path d="m17.66 17.66 1.41 1.41" />
+                  <path d="M2 12h2" />
+                  <path d="M20 12h2" />
+                  <path d="m6.34 17.66-1.41 1.41" />
+                  <path d="m19.07 4.93-1.41 1.41" />
+                </svg>
+              ) : (
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" />
+                </svg>
+              )}
             </button>
           </div>
         </div>
@@ -571,11 +606,17 @@ export default function Home() {
       <section
         id="inicio"
         className="
-          relative z-10 mx-auto grid min-h-[100svh] max-w-6xl
+          relative z-10 mx-auto grid max-w-6xl
           grid-cols-[1.45fr_0.75fr] items-center gap-4
-          px-4 pb-12 pt-24
-          sm:grid-cols-[1.35fr_0.65fr] sm:gap-8 sm:px-6 sm:pb-16 sm:pt-28
-          md:grid-cols-[1.25fr_0.75fr] md:gap-14 md:pb-24 md:pt-32
+          px-4 pb-16 pt-24
+
+          sm:grid-cols-[1.35fr_0.65fr]
+          sm:gap-8 sm:px-6 sm:pb-20 sm:pt-28
+
+          md:min-h-[100svh]
+          md:grid-cols-[1.25fr_0.75fr]
+          md:items-center md:gap-14
+          md:pb-24 md:pt-32
         "
       >
         {/* TEXTO */}
