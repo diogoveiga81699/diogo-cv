@@ -6,33 +6,21 @@ export const metadata: Metadata = {
 
   title: "Diogo Veiga | Portfolio",
 
-  description:
-    "Estudante de Engenharia Informática na UTAD. Conhece os meus projetos, experiência e percurso.",
+  description: "",
 
   openGraph: {
     title: "Diogo Veiga | Portfolio",
-    description:
-      "Estudante de Engenharia Informática na UTAD. Conhece os meus projetos, experiência e percurso.",
+    description: "",
     url: "https://diogo-cv.vercel.app",
     siteName: "Diogo Veiga | Portfolio",
     locale: "pt_PT",
     type: "website",
-    images: [
-      {
-        url: "/opengraph-image",
-        width: 1200,
-        height: 630,
-        alt: "Diogo Veiga | Portfolio",
-      },
-    ],
   },
 
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: "Diogo Veiga | Portfolio",
-    description:
-      "Estudante de Engenharia Informática na UTAD. Conhece os meus projetos, experiência e percurso.",
-    images: ["/opengraph-image"],
+    description: "",
   },
 
   icons: {
